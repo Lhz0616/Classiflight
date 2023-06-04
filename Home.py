@@ -8,12 +8,12 @@ from utils import vectorise, tokenise_sentence
 
 FASTTEXT_MODEL_PATH = 'models/fasttext_text_classification_model.bin'
 WORD2VEC_MODEL_PATH = 'models/svm_model.sav'
-CLASSIFLIGHT_LOGO = Path('.').joinpath("assets").joinpath("classiflight.png").as_posix()
-FASTTEXT_LOGO = Path('.').joinpath("assets").joinpath("fasttext.png").as_posix()
-FASTTEXT_MODEL_IMG = Path('.').joinpath("assets").joinpath("fasttext_model.png").as_posix()
-CLASS_PKL = Path('.').joinpath("models").joinpath("classes.pkl").as_posix()
-SKIP_GRAM_IMG = Path('.').joinpath("assets").joinpath("skip_gram_net_arch.png").as_posix()
-WORD2VEC_EXAMPLE = Path('.').joinpath("assets").joinpath("Word2Vec_example.png").as_posix()
+CLASSIFLIGHT_LOGO = Path('.').joinpath("assets").joinpath("classiflight.png").absolute().as_posix()
+FASTTEXT_LOGO = Path('.').joinpath("assets").joinpath("fasttext.png").absolute().as_posix()
+FASTTEXT_MODEL_IMG = Path('.').joinpath("assets").joinpath("fasttext_model.png").absolute().as_posix()
+CLASS_PKL = Path('.').joinpath("models").joinpath("classes.pkl").absolute().as_posix()
+SKIP_GRAM_IMG = Path('.').joinpath("assets").joinpath("skip_gram_net_arch.png").absolute().as_posix()
+WORD2VEC_EXAMPLE = Path('.').joinpath("assets").joinpath("Word2Vec_example.png").absolute().as_posix()
 
 with st.spinner('Wait for models to load...'):
     fasttext_model = ft.load_model(FASTTEXT_MODEL_PATH)
