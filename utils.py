@@ -5,18 +5,8 @@ import pandas as pd
 from gensim.models import KeyedVectors
 
 
-# Word2Vec variables
-import os
-last = os.getcwd().split('\\')[-1]
-if last == 'streamlit':
-    path_offset = '../'
-
-else:
-    path_offset = './'
-
-
-spacy.cli.download("en_core_web_sm")
-wv = KeyedVectors.load(f'{path_offset}/models/vectors.bin')
+spacy.cli.download('en_core_web_sm')
+wv = KeyedVectors.load('./models/vectors.kv')
 nlp = spacy.load('en_core_web_sm')
 stop_words = nlp.Defaults.stop_words
 punctuations = string.punctuation

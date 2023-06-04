@@ -2,12 +2,11 @@ import streamlit as st
 import fasttext as ft
 import joblib
 import pickle
-from pathlib import Path
 
 from utils import vectorise, tokenise_sentence
 
-FASTTEXT_MODEL_PATH = 'models/fasttext_text_classification_model.bin'
-WORD2VEC_MODEL_PATH = 'models/svm_model.sav'
+FASTTEXT_MODEL_PATH = './models/fasttext_text_classification_model.bin'
+WORD2VEC_MODEL_PATH = './models/svm_model.sav'
 
 
 with st.spinner('Wait for models to load...'):
