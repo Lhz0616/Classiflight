@@ -15,6 +15,7 @@ else:
     path_offset = './'
 
 
+spacy.cli.download("en_core_web_sm")
 wv = KeyedVectors.load(f'{path_offset}/models/vectors.bin')
 nlp = spacy.load('en_core_web_sm')
 stop_words = nlp.Defaults.stop_words
