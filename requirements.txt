@@ -2,4 +2,4 @@ fasttext
 gensim
 spacy
 joblib
-sklearn
+scikit-learn
