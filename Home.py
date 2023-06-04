@@ -12,6 +12,9 @@ WORD2VEC_MODEL_PATH = './models/svm_model.sav'
 with st.spinner('Wait for models to load...'):
     fasttext_model = ft.load_model(FASTTEXT_MODEL_PATH)
     word2vec_model = joblib.load(WORD2VEC_MODEL_PATH)
+    pkl_file = open('./models/classes.pkl', 'rb')
+    label_encoder = pickle.load(pkl_file)
+    pkl_file.close()
     success = st.success('Successfully load models!')
 success.empty()
 
@@ -102,10 +105,6 @@ elif option == 'Word2Vec':
 
         text_vector = [vectorise(tokenise_sentence(user_input))]
         predicted_label = word2vec_model.predict(text_vector)
-
-        pkl_file = open('./models/classes.pkl', 'rb')
-        label_encoder = pickle.load(pkl_file)
-        pkl_file.close()
         result = label_encoder.inverse_transform(predicted_label)
 
         st.write(f"The class label is **{result[0][5:]}**")
