@@ -8,12 +8,7 @@ from utils import vectorise, tokenise_sentence
 
 FASTTEXT_MODEL_PATH = 'models/fasttext_text_classification_model.bin'
 WORD2VEC_MODEL_PATH = 'models/svm_model.sav'
-CLASSIFLIGHT_LOGO = Path('.').joinpath("assets").joinpath("classiflight.png").absolute().as_posix()
-FASTTEXT_LOGO = Path('.').joinpath("assets").joinpath("fasttext.png").absolute().as_posix()
-FASTTEXT_MODEL_IMG = Path('.').joinpath("assets").joinpath("fasttext_model.png").absolute().as_posix()
-CLASS_PKL = Path('.').joinpath("models").joinpath("classes.pkl").absolute().as_posix()
-SKIP_GRAM_IMG = Path('.').joinpath("assets").joinpath("skip_gram_net_arch.png").absolute().as_posix()
-WORD2VEC_EXAMPLE = Path('.').joinpath("assets").joinpath("Word2Vec_example.png").absolute().as_posix()
+
 
 with st.spinner('Wait for models to load...'):
     fasttext_model = ft.load_model(FASTTEXT_MODEL_PATH)
@@ -52,7 +47,7 @@ with st.sidebar:
 
 col1, col2, col3 = st.columns([10, 8, 10])
 with col2:
-    st.image(CLASSIFLIGHT_LOGO)
+    st.image('./assets/classiflight.png')
 
 st.write("""
     ## Classification Of Issues regarding Flight Operations Based On Customer Questions """)
@@ -72,7 +67,7 @@ if option == 'fasttext':
         st.write(f"The class label is **{prediction[0][0][9:]}** with a confidence of **{prediction[1][0]}**")
 
     with st.expander("See what is fasttext"):
-        st.image(FASTTEXT_LOGO)
+        st.image('./assets/fasttext.png')
         st.markdown("""
         
         #### What is fasttext?
@@ -83,7 +78,7 @@ if option == 'fasttext':
         The following image shows the text classifier __fastText__ model architecture.
         """)
 
-        st.image(FASTTEXT_MODEL_IMG)
+        st.image('./assets/fasttext_model.png')
 
         st.markdown("""
         The figure above shows a simple linear model with rank constraints. The word representation are averaged 
@@ -109,7 +104,7 @@ elif option == 'Word2Vec':
         text_vector = [vectorise(tokenise_sentence(user_input))]
         predicted_label = word2vec_model.predict(text_vector)
 
-        pkl_file = open(CLASS_PKL, 'rb')
+        pkl_file = open('./models/classes.pkl', 'rb')
         label_encoder = pickle.load(pkl_file)
         pkl_file.close()
         result = label_encoder.inverse_transform(predicted_label)
@@ -137,7 +132,7 @@ elif option == 'Word2Vec':
             
             """)
 
-        st.image(SKIP_GRAM_IMG)
+        st.image('./assets/skip_gram_net_arch.png')
 
         st.markdown("""
         First of all, we cannot feed a word as string into a neural network.
@@ -162,7 +157,7 @@ elif option == 'Word2Vec':
         
         """)
 
-        st.image(WORD2VEC_EXAMPLE)
+        st.image('./assets/Word2Vec_example.png')
 
         st.markdown("""
         As you can see from the photo above, we can see that we will take the coordinates of the different words 
