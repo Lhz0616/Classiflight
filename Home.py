@@ -44,7 +44,8 @@ with st.sidebar:
 
 
 col1, col2, col3 = st.columns([10, 8, 10])
-col2.image('assets/classiflight.png')
+with col2:
+    st.image('assets/classiflight.png')
 
 st.write("""
     ## Classification Of Issues regarding Flight Operations Based On Customer Questions """)
