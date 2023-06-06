@@ -52,11 +52,16 @@ with col2:
     st.image('assets/Classiflight.png')
 
 st.write("""
-    ## Classification Of Issues regarding Flight Operations Based On Customer Questions """)
+    ## Classification Of Issues regarding Flight Operations Based On Customer Questions 
+    """)
 
 user_input = st.text_input("What is the question that you would like to ask?",
                            "What is the flight fare from Malaysia to Bangkok?")
 st.button("Predict", on_click=set_stage, args=(1,))
+
+st.write("""
+* Available class: flight, airfare, ground_service, airline, abbreviation, aircraft, flight_time, quantity
+""")
 
 
 # fasttext explanation
