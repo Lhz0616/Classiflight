@@ -28,11 +28,13 @@ The model that we had trained:
 The text preprocessing that we had used:
 - Word2Vec
     - Lowercase
+    - Lemmatization
+    - remove stop words
     - vectorise the words with pretrained model (`gensim glove-twitter-50`)
 - fasttext
     - lowercase
     - remove stop words
-    - preprocess with the required format (\_\_label\__{label} {statement})
+    - preprocess with the required format (`__label__{label} {statement}`)
 
 ### User Interface
 `Home.py` is the user interface for this project. In order to access it locally, you should use the command below when you are in this directory:
