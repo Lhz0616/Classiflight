@@ -59,19 +59,19 @@ user_input = st.text_input("What is the question that you would like to ask?",
                            "What is the flight fare from Malaysia to Bangkok?")
 st.button("Predict", on_click=set_stage, args=(1,))
 
-st.write("""
-* Available class: flight, airfare, ground_service, airline, abbreviation, aircraft, flight_time, quantity
-""")
-
-
-# fasttext explanation
-st.divider()
 
 if option == 'fasttext':
 
     if st.session_state.stage > 0:
         prediction = fasttext_model.predict(user_input)
-        st.write(f"The class label is **{prediction[0][0][9:]}** with a confidence of **{prediction[1][0]}**")
+        class_label = prediction[0][0][9:]
+        confidence = round(prediction[1][0] * 100, 2)
+        st.write(f"The class label is **{class_label}** with a confidence of **{confidence}%**")
+
+    st.divider()
+    st.write("""
+    * Available class: flight, airfare, ground_service, airline, abbreviation, aircraft, flight_time, quantity
+    """)
 
     with st.expander("See what is fasttext"):
         st.image('./assets/fasttext.png')
@@ -114,6 +114,10 @@ elif option == 'Word2Vec':
 
         st.write(f"The class label is **{result[0][5:]}**")
 
+    st.divider()
+    st.write("""
+        * Available class: flight, airfare, ground_service, airline, abbreviation, aircraft, flight_time, quantity
+        """)
     with st.expander("See what is Word2Vec"):
         st.markdown(f"""
     
