@@ -44,7 +44,7 @@ with st.sidebar:
     -------
     
     """)
-    option = st.selectbox(label="Please choose one of the model below", options=("fasttext", "Word2Vec"))
+    option = st.selectbox(label="Please choose one of the model below", options=("fasttext", "GloVe"))
 
 
 col1, col2, col3 = st.columns([10, 8, 10])
@@ -102,9 +102,8 @@ if option == 'fasttext':
         them in terms of training time while being able to maintain the accuracy.
         """)
 
-
-# Word2Vec explanation
-elif option == 'Word2Vec':
+# GloVe explanation
+elif option == 'GloVe':
 
     if st.session_state.stage > 0:
 
@@ -118,62 +117,48 @@ elif option == 'Word2Vec':
     st.write("""
         * Available class: flight, airfare, ground_service, airline, abbreviation, aircraft, flight_time, quantity
         """)
-    with st.expander("See what is Word2Vec"):
+    with st.expander("See what is GloVe"):
         st.markdown(f"""
     
             ------
     
-            ### Word2Vec 
+            ### GloVe 
             
-            #### What is Word2Vec?
-            Word2Vec is a two-layer neural net that processes text by "vectorizing" words.
-            It changes text into numerical forms.  
+            #### What is GloVe?
+            GloVe is an unsupervised learning algorithm for obtaining vector representations for words (Pennington, 2014).
             
             #### How does it works?
-            Word2Vec uses a trick that we may seen elsewhere in machine learning. 
-            Word2Vec uses a simple neural network with a single hidden layer, with weights and biases too. 
-            In this approach, we want to reduce the loss function during training and we will take the weights
-            as the word embeddings.
-            
-            The following is the picture of how the model actually is:
+            It uses the cosine similarity between two words to measure their semantic similarity. For example, words close to frog are frogs, toad, litoria. 
             
             """)
 
-        st.image('./assets/skip_gram_net_arch.png')
+        st.image('assets/cosine_similarity.png')
 
         st.markdown("""
-        First of all, we cannot feed a word as string into a neural network.
-        Instead, the word is one-hot-encoded into vectors with the length of the size of vocabulary
-        and fill all of them with zeros and only a "1" for the word we want. This will be the input layer. 
+        However, this simplicity can be problematic. In order to capture the nuance to distinguish man from woman, 
+        GloVe used linear substructures and vector difference between two word vectors to capture meaning of the two words. 
+        Linear substructures are commonly referred to the way that word vectors are arranged in a vector space.
+            """)
         
-        Then, the input layer is connected to the hidden layer and the hidden layer is then
-        connected to the output layer, which is a softmax classifier. 
+        st.image('assets/linear_substructures.jpg')
         
-        The hidden layer weight matrix is what we want, as they are the word vectors that we want. 
-        This is how we obtain the Word2Vec vector. 
-        
-        #### What can Word2Vec do?
-        Word2Vec is effective in grouping the vectors of the similar words. If there's a big enough dataset, then
-        Word2Vec is able to produce strong estimation about a word's meaning. 
+        st.markdown("""
+        #### What can GloVe do?
+        glove embeddings in natural languages processing tasks such as language translation, text classification, and information retrieval. 
+        The GloVe algorithm uses a co-occurrence matrix to learn the relationships between words, 
+        and it can be trained on large datasets to learn rich and accurate embeddings. 
         
         #### Let's take an easy example:
-        We want to find the word 'queen' with the words 'king', 'man', 'woman'. If in the case of mathematics,
-        we know that if we remove 'man' and add 'woman' into the 'king', then we are able to get 'queen'.
-        
-        But how does Word2Vec do this?
         
         """)
 
-        st.image('./assets/Word2Vec_example.png')
+        st.image('./assets/man_woman.png')
 
         st.markdown("""
-        As you can see from the photo above, we can see that we will take the coordinates of the different words 
-        and do the mathematical operation:
-        
-        $ 'king' - 'man' + 'woman' = 'queen' $
-        
-        $ [5, 3] - [2, 1] + [3, 2] = [6, 4] $
+        The underlying concept that distinguishes man from woman, i.e. sex or gender, 
+        may be equivalently specified by various other word pairs, such as king and queen.
+        To state this observation mathematically, we might expect that the vector differences man - woman and king - queen to be roughly equal.
+
+        ### What we did
+        After getting the word embeddings of the sentences using GloVe, we trained it on a Support Vector Classifier, in which the output of it will be the relevant intent labels of the customer. 
         """)
-
-
-
