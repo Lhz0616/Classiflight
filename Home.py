@@ -66,7 +66,7 @@ if option == 'fasttext':
         prediction = fasttext_model.predict(user_input)
         class_label = prediction[0][0][9:]
         confidence = round(prediction[1][0] * 100, 2)
-        st.write(f"The class label is **{class_label}** with a confidence of **{confidence}%**")
+        st.write(f"The class label is **{class_label}**")
 
     st.divider()
     st.write("""
