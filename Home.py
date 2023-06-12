@@ -144,7 +144,7 @@ elif option == 'GloVe':
         
         st.markdown("""
         #### What can GloVe do?
-        glove embeddings in natural languages processing tasks such as language translation, text classification, and information retrieval. 
+        GloVe embeddings in natural languages processing tasks such as language translation, text classification, and information retrieval. 
         The GloVe algorithm uses a co-occurrence matrix to learn the relationships between words, 
         and it can be trained on large datasets to learn rich and accurate embeddings. 
         
