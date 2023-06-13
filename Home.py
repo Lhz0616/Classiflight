@@ -44,7 +44,7 @@ with st.sidebar:
     -------
     
     """)
-    option = st.selectbox(label="Please choose one of the model below", options=("fasttext", "GloVe"))
+    option = st.selectbox(label="Please choose one of the model below", options=("fastText", "GloVe"))
 
 
 col1, col2, col3 = st.columns([10, 8, 10])
