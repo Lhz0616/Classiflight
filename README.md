@@ -26,7 +26,7 @@ The model that we had trained:
 - Word2Vec with [Support Vector Classificator (SVC)](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html)
 
 The text preprocessing that we had used:
-- Word2Vec
+- GloVe
     - Lowercase
     - Lemmatization
     - remove stop words
@@ -60,4 +60,6 @@ Finally I would like to appreciate my teammates hard work in this project, they 
 3. [Khor Zhi Qian](https://github.com/Keyu0625)
 4. [Lim Wei Sze](https://github.com/weisze-yo)
 5. [Chew Yao Dong](https://github.com/yaodongchew)
+6. [Teh Yi Ying](https://github.com/yiying305)
+7. [Myself!](https://github.com/Lhz0616)
 
