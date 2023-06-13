@@ -38,7 +38,7 @@ with st.sidebar:
     Thus, there are a lot of problems that will be ask by the customers. There is a need for the classification of the questions
     ask by the customers.
     
-    We had trained two different models in our project, which is **fasttext** and **Word2Vec with SVC**.
+    We had trained two different models in our project, which is **fasttext** and **GloVe with SVC**.
     You can choose one of them at the dropdown list below and there will be more explanation about it. 
     
     -------
@@ -60,7 +60,7 @@ user_input = st.text_input("What is the question that you would like to ask?",
 st.button("Predict", on_click=set_stage, args=(1,))
 
 
-if option == 'fasttext':
+if option == 'fastText':
 
     if st.session_state.stage > 0:
         prediction = fasttext_model.predict(user_input)
@@ -73,12 +73,12 @@ if option == 'fasttext':
     * Available class: flight, airfare, ground_service, airline, abbreviation, aircraft, flight_time, quantity
     """)
 
-    with st.expander("See what is fasttext"):
+    with st.expander("See what is fastText"):
         st.image('./assets/fasttext.png')
         st.markdown("""
         
-        #### What is fasttext?
-        FastText is being developed by the Facebook AI Research (FAIR) Team. FastText is famous for its speed
+        #### What is fastText?
+        fastText is being developed by the Facebook AI Research (FAIR) Team. fastText is famous for its speed
         while being able to maintain on par performance with deep learning classifiers with just using CPU.
         
         #### How does it works?
@@ -97,8 +97,8 @@ if option == 'fasttext':
         rate.
         
         #### What can it do?
-        FastText can be used in the application of text classification and text representation learning. 
-        There are a lot of approaches that can be used in these two application but fasttext can outperform
+        fastText can be used in the application of text classification and text representation learning. 
+        There are a lot of approaches that can be used in these two application but fastText can outperform
         them in terms of training time while being able to maintain the accuracy.
         """)
 
