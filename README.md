@@ -23,7 +23,7 @@ The Jupyter Notebooks are the code where we use it for training and preprocess o
 
 The model that we had trained:
 - [fasttext](https://fasttext.cc/) text classification
-- Word2Vec with [Support Vector Classificator (SVC)](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html)
+- GloVe with [Support Vector Classificator (SVC)](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html)
 
 The text preprocessing that we had used:
 - GloVe
