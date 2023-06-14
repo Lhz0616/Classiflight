@@ -61,5 +61,5 @@ Finally I would like to appreciate my teammates hard work in this project, they 
 4. [Lim Wei Sze](https://github.com/weisze-yo)
 5. [Chew Yao Dong](https://github.com/yaodongchew)
 6. [Teh Yi Ying](https://github.com/yiying305)
-7. [Myself!](https://github.com/Lhz0616)
+7. [Lim Hong Zhi (Myself!)](https://github.com/Lhz0616)
 
