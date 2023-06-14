@@ -6,12 +6,12 @@ import pickle
 from utils import vectorise, tokenise_sentence
 
 FASTTEXT_MODEL_PATH = './models/fasttext_text_classification_model.bin'
-WORD2VEC_MODEL_PATH = './models/svm_model.sav'
+GLOVE_MODEL_PATH = './models/svm_model.sav'
 
 
 with st.spinner('Wait for models to load...'):
     fasttext_model = ft.load_model(FASTTEXT_MODEL_PATH)
-    word2vec_model = joblib.load(WORD2VEC_MODEL_PATH)
+    word2vec_model = joblib.load(GLOVE_MODEL_PATH)
     pkl_file = open('./models/classes.pkl', 'rb')
     label_encoder = pickle.load(pkl_file)
     pkl_file.close()
